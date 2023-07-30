@@ -32,5 +32,5 @@ echo "DataAsset: "
 az ml data create -f diabetes-dev.yml
 
 
-echo "az group delete --name " $COMPUTE_INSTANCE
-
+echo "az group delete --nameaz ml compute create --name ci-mlops-challenge -f compute_instance.yml
+#az ml job create --file job.yml --resource-group rg-mlops-challenge --workspace-name mlw-mlops-challenge
