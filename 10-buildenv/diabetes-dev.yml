@@ -8,4 +8,4 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 
 name: diabetes-dev
 description: Loaded us
-path:  mslearn/experimentation/data
+path:  ../experimentation/data

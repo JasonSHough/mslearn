@@ -24,13 +24,17 @@ az configure --defaults workspace=$WORKSPACE_NAME
 
 # Create compute instance
 echo "Creating a compute instance with name: " $COMPUTE_INSTANCE
-az ml compute create --name ${COMPUTE_INSTANCE} --size STANDARD_DS11_V2 --type ComputeInstance -d 15
-az ml compute create --name ${COMPUTE_INSTANCE} --size STANDARD_DS11_V2 --type ComputeInstance -d 15
-
+#az ml compute create --name ${COMPUTE_INSTANCE} --size STANDARD_DS11_V2 --type ComputeInstance -d 15
+#az ml compute create --name ${COMPUTE_INSTANCE} --size STANDARD_DS11_V2 --type ComputeInstance -d 15
+az ml compute create -f compute_instance.yml --name ci-mlops-challenge
 
 echo "DataAsset: " 
 az ml data create -f diabetes-dev.yml
 
 
-echo "az group delete --nameaz ml compute create --name ci-mlops-challenge -f compute_instance.yml
-#az ml job create --file job.yml --resource-group rg-mlops-challenge --workspace-name mlw-mlops-challenge
+echo "Create job to run"
+az ml job create --file ../src/job.yml --resource-group rg-mlops-challenge --workspace-name mlw-mlops-challenge
+
+az ad sp create-for-rbac --name "<service-principal-name>" --role contributor \
+                              --scopes /subscriptions/<subscription-id>/resourceGroups/<your-resource-group-name> \
+                              --sdk-auth
