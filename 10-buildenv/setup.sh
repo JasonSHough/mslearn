@@ -35,6 +35,6 @@ az ml data create -f diabetes-dev.yml
 echo "Create job to run"
 az ml job create --file ../src/job.yml --resource-group rg-mlops-challenge --workspace-name mlw-mlops-challenge
 
-az ad sp create-for-rbac --name "<service-principal-name>" --role contributor \
+az ad sp create-for-rbac --name "sp-mlops-challenge" --role contributor \
                               --scopes /subscriptions/<subscription-id>/resourceGroups/<your-resource-group-name> \
                               --sdk-auth
