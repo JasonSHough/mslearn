@@ -1,5 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 display_name: diabetes-dev
+tags:
+  name:This is a test
 code: model
 command: >-
   python train.py
