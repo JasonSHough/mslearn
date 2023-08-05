@@ -1,4 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+display_name: diabetes-dev
 code: model
 command: >-
   python train.py
@@ -11,5 +12,5 @@ inputs:
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: ci-mlops-challenge
-experiment_name: Test1
+experiment_name: diabetes-dev
 description: This is the first test 
