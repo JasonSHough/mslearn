@@ -7,6 +7,8 @@ jobs:
   train:
     runs-on: ubuntu-latest
     environment: Dev
+    env:
+      ENVIRONMENT: ${{vars.ENVIRONMENT}}
       
     steps:
     - name: Show Enviroment var
