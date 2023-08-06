@@ -11,7 +11,7 @@ jobs:
       ENVIRONMENT: ${{vars.ENVIRONMENT}}
       
     steps:
-    - name: Show Enviroment var env:
+    - name: Show Enviroment var env
       run: echo "Environment is $ENVIRONMENT "
     - name: Show Enviroment vars.ENVIRONMENT
       run: echo "Environment is ${{ vars.ENVIRONMENT }}"
