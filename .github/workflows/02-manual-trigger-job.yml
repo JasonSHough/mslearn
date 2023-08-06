@@ -12,7 +12,7 @@ jobs:
       
     steps:
     - name: Show Enviroment var
-      run: echo "Environment is ${{ENVRIONMENT}} "
+      run: echo "Environment is ${{ENVIRONMENT}} "
     - name: Check out repo
       uses: actions/checkout@main
     - name: Install az ml extension
