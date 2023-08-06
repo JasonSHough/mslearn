@@ -30,6 +30,7 @@ az ml compute create -f compute_instance.yml --name ci-mlops-challenge
 
 echo "DataAsset: " 
 az ml data create -f diabetes-dev.yml
+az ml data create -f diabetes-prod.yml
 
 
 echo "Create job to run"
