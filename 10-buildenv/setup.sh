@@ -7,6 +7,7 @@ RESOURCE_PROVIDER="Microsoft.MachineLearning"
 RANDOM_REGION="uksouth"
 WORKSPACE_NAME="mlw-mlops-challenge"
 COMPUTE_INSTANCE="ci-mlops-challenge"
+COMPUTE_CLUSTER="cc-mlops-challenge"
 
 
 # Register the Azure Machine Learning resource provider in the subscription
@@ -27,6 +28,7 @@ echo "Creating a compute instance with name: " $COMPUTE_INSTANCE
 #az ml compute create --name ${COMPUTE_INSTANCE} --size STANDARD_DS11_V2 --type ComputeInstance -d 15
 #az ml compute create --name ${COMPUTE_INSTANCE} --size STANDARD_DS11_V2 --type ComputeInstance -d 15
 az ml compute create -f compute_instance.yml --name ci-mlops-challenge
+az ml compute create -f compute_cluster.yml --name cc-mlops-challenge
 
 echo "DataAsset: " 
 az ml data create -f diabetes-dev.yml
