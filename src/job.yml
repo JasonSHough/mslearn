@@ -2,17 +2,16 @@ $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 display_name: diabetes-dev
 code: model
 command: >-
-  python train.py
-  --training_data ${{inputs.training_data}}
-  --reg_rate ${{inputs.reg_rate}}
+  python train.py --training_data ${{inputs.training_data}} --reg_rate ${{inputs.reg_rate}}
+
 inputs:
-  training_data: 
-    type: uri_folder 
+  training_data:
+    type: uri_folder
     path: azureml:diabetes-dev:1
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 tags:
   hello: world at large
-compute: ci-mlops-challenge
+compute: cc-mlops-challenge
 experiment_name: diabetes-dev
-description: This is the first test 
+description: This is the first test
