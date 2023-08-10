@@ -27,9 +27,8 @@ az configure --defaults workspace=$WORKSPACE_NAME
 echo "Creating a compute instance with name: " $COMPUTE_INSTANCE
 #az ml compute create --name ${COMPUTE_INSTANCE} --size STANDARD_DS11_V2 --type ComputeInstance -d 15
 #az ml compute create --name ${COMPUTE_INSTANCE} --size STANDARD_DS11_V2 --type ComputeInstance -d 15
-az ml compute create -f compute_instance.yml --name ci-mlops-challenge
-az ml compute create -f compute_cluster.yml --name cc-mlops-challenge
-
+echo "az ml compute create -f compute_instance.yml --name ci-mlops-challenge"
+echo "az ml compute create -f compute_cluster.yml --name cc-mlops-challenge --resource-group rg-mlops-challenge --workspace-name mlw-mlops-challenge"
 echo "DataAsset: " 
 az ml data create -f diabetes-dev.yml
 
