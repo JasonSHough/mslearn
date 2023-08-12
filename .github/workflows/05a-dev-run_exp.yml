@@ -28,5 +28,5 @@ jobs:
         #run: az ml job create --file src/job.yml --resource-group ${{ vars.RESOURCE_GROUP }} --workspace-name ${{ vars.WORKSPACE }}
         run: exit 1
       - name: Failed Job
-        if: ${{failur()}}
+        if: ${{failure()}}
         run: echo "Job Failed"
