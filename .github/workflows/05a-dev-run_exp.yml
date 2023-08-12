@@ -25,8 +25,8 @@ jobs:
         with:
           creds: ${{secrets.AZURE_CREDENTIALS}}
       - name: Trigger Azure Machine Learning job
-        #run: az ml job create --file src/job.yml --resource-group ${{ vars.RESOURCE_GROUP }} --workspace-name ${{ vars.WORKSPACE }}
-        run: exit 1
+        run: az ml job create --file src/job.yml --resource-group ${{ vars.RESOURCE_GROUP }} --workspace-name ${{ vars.WORKSPACE }} -s
+        #run: exit 1 #Force an error
       - name: Failed Job
         if: ${{failure()}}
         run: echo "Job Failed"
