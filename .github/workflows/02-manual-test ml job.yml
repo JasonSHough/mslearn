@@ -25,4 +25,4 @@ jobs:
           creds: ${{secrets.AZURE_CREDENTIALS}}
       - name: Get the Job
         id: Job
-        run: jobname $(az ml job list --query "sort_by([?experiment_name=='diabetes-prod'].{Name:name,Jobstatus:status,Experiment:experiment_name,Created:creation_context.created_at}, &Created) | [-1].{JobName:Name}" -g rg-mlops-challenge  -w mlw-mlops-challenge -otsv)
+        run: jobname=$(az ml job list --query "sort_by([?experiment_name=='diabetes-prod'].{Name:name,Jobstatus:status,Experiment:experiment_name,Created:creation_context.created_at}, &Created) | [-1].{JobName:Name}" -g rg-mlops-challenge  -w mlw-mlops-challenge -otsv)
