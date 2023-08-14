@@ -1,8 +1,9 @@
 name: Push trigger an Azure Machine Learning job
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+  #push:
+  #  branches: [main]
 
 jobs:
   train:
