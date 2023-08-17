@@ -83,4 +83,5 @@ jobs:
         #az ml model create --name diabetes-prod --version 1 --path runds:/blue_chin_3rgry5c6lt/model --type mlflow_model -g rg-mlops-challenge  -w mlw-mlops-challenge
         #az ml model create --name diabetes-prod --path runs:/diabetes-prod/model --type mlflow_model -g rg-mlops-challenge  -w mlw-mlops-challenge
         #az ml job list --query "sort_by([?experiment_name=='diabetes-prod'].{Name:name,Jobstatus:status,Experiment:experiment_name,Created:creation_context.created_at}, &Created) | [-1]" -g rg-mlops-challenge  -w mlw-mlops-challenge -oTable
+        # az ml online-deployment create -f .\20-RegisterModel\DeployModel.yml --all-traffic -g rg-mlops-challenge -w mlw-mlops-challenge
 

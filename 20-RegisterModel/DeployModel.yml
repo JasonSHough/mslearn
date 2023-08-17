@@ -1,9 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-name: diabetes-prod-endpoint
-endpoint_name: diabetes-endpoint
-model:
-  name: diabetes-prod
-  local_path: model
-  model_format: mlflow
-instance_type: Standard_F2s_v2
+name: diabetes-prod-model-deploy
+endpoint_name: diabetes-prod-endpoint
+model: azureml:diabetes-prod@latest
+instance_type: Standard_DS3_v2
 instance_count: 1

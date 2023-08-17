@@ -27,3 +27,11 @@ jobs:
         id: Job
         run: jobname=$(az ml job list --query "sort_by([?experiment_name=='diabetes-prod'].{Name:name,Jobstatus:status,Experiment:experiment_name,Created:creation_context.created_at}, &Created) | [-1].{JobName:Name}" -g rg-mlops-challenge  -w mlw-mlops-challenge -otsv)
              echo "::set-output name=jobname::$jobname"
+      - name: Create End Point
+        run: az ml online-endpoint create -f 20-RegisterModel/CreateEndPoint.yml --resource-group ${{ vars.RESOURCE_GROUP }} --workspace-name ${{ vars.WORKSPACE }}
+      - name: Register model
+        run: az ml model create --name diabetes-prod --path azureml://jobs/diabetes-prod/outputs/artifacts/paths/outputs --type mlflow_model 
+      - name: Deploy model to an end point
+        run: az ml online-deployment create -f .\20-RegisterModel\DeployModel.yml --all-traffic -g rg-mlops-challenge -w mlw-mlops-challenge
+      - name: Test EndPoint
+        run:  az ml online-endpoint invoke --name diabetes-mlflow --request-file ./20-TestEndPoint/Test_1.json
